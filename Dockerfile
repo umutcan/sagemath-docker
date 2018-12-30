@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y \
     python \
     python-pip \
     python3-pip
-	
+
 COPY --from=sagemath/sagemath:latest /home/sage /home/sage
 ARG SAGE_ROOT=/home/sage/sage
 RUN ln -s "$SAGE_ROOT/sage" /usr/bin/sage
@@ -78,4 +78,5 @@ RUN groupadd wheel -g 11 && \
     fix-permissions $HOME && \
     fix-permissions $SAGE_DIR
 USER $NB_UID
-#CMD ["sage"]
+#CMD ["sage"] 
+
